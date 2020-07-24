@@ -119,7 +119,7 @@ start() {
     name="$1"
     port="$2"
     authkeys_file=/home/dl/.ssh/authorized_keys
-    docker run --name "$name" -v "$tmpdir":/tmp -dit -p "$port":22 \
+    docker run --name "$name" -v "$tmpdir":"$tmpdir" -dit -p "$port":22 \
            datalad-tests-ssh
     docker exec -i "$name" \
            sh -c "cat >>$authkeys_file && chown dl:dl $authkeys_file" \
