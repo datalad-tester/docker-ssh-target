@@ -35,8 +35,7 @@ tests.
   If a second instance is needed, append "2" to the Host value and
   increment the port.
 
-  Finally, set DATALAD_TESTS_SSH=1 and DATALAD_TESTS_SSH_PORT=42241
-  when running the DataLad tests.
+  Finally, set DATALAD_TESTS_SSH=1 when running the DataLad tests.
 EOF
 }
 
