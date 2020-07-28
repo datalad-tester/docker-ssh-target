@@ -14,9 +14,10 @@ tests.
     Add this public SSH key instead of ~/.ssh/id_rsa.pub to the
     container's .ssh/authorized_keys.
   --from=<image>
-    Use <image> in the "FROM " line of the generated Dockerfile.  When
-    an image file isn't specified, an image is built from the
-    Dockerfile in the same directory as this script.
+    Use <image> in the "FROM " line of the generated Dockerfile
+    instead of dataladtester/docker-ssh-target:latest.  When set to
+    '.', an image is built from the Dockerfile in the same directory
+    as this script.
   -2
     Start a second container.  This is needed for a few DataLad tests
     that require two SSH targets.
@@ -40,7 +41,7 @@ EOF
 }
 
 key="$HOME/.ssh/id_rsa.pub"
-from=
+from=dataladtester/docker-ssh-target:latest
 two=
 while test $# != 0
 do
@@ -84,7 +85,7 @@ then
     exit 1
 fi
 
-if test -z "$from"
+if test "$from" = "."
 then
     if test "$(dirname "$0")" != "."
     then
