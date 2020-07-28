@@ -32,8 +32,8 @@ tests.
     StrictHostKeyChecking no
     Port 42241
 
-  If a second instance is needed, append "2" to the Host value and
-  increment the port.
+  If a second instance is needed, add another entry, appending "2" to
+  the Host value and incrementing the port by 1.
 
   Finally, set DATALAD_TESTS_SSH=1 when running the DataLad tests.
 EOF
