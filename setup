@@ -105,7 +105,8 @@ mkdir -p "$tmpdir"
     cd "$(mktemp -d "$tmpdir/datalad-tests-ssh-XXXXXXX")"
     cat >Dockerfile <<-EOF
 	FROM $from
-	RUN useradd -ms /bin/bash -ou $(id -u) dl && \\
+	RUN groupadd -og $(id -g) dl && \\
+	    useradd -ms /bin/bash -ou $(id -u) -g dl dl && \\
 	    mkdir -p /home/dl/.ssh && \\
 	    chown -R dl:dl /home/dl/ && \\
 	    echo 'dl:dl' | chpasswd
