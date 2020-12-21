@@ -17,5 +17,6 @@ RUN sed -ri \
       -e 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' \
       -e 's/UsePAM yes/#UsePAM yes/g' \
       /etc/ssh/sshd_config && \
+    echo 'MaxSessions 100' >>/etc/ssh/sshd_config && \
     mkdir -p /var/run/sshd
 EXPOSE 22
