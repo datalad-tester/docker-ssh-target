@@ -1,0 +1,99 @@
+[
+    {
+        "Id": "sha256:eff5a230c1b68caefc3b030124c0c300e405ac726cc453b658a055fa5b1b9147",
+        "RepoTags": [
+            "dataladtester/docker-ssh-target:latest"
+        ],
+        "RepoDigests": [
+            "dataladtester/docker-ssh-target@sha256:f5e151dc378ce081e3009e0780d96ba96bd003be07f7da8be626ecce5511e0f1"
+        ],
+        "Parent": "",
+        "Comment": "",
+        "Created": "2020-12-21T21:12:54.740808092Z",
+        "Container": "6f9f5a7535095cc80834d4badd5737c33dab87479f65a4f769528332a2c8f03f",
+        "ContainerConfig": {
+            "Hostname": "6f9f5a753509",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "22/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DEBIAN_FRONTEND=noninteractive"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "#(nop) ",
+                "EXPOSE 22"
+            ],
+            "Image": "sha256:fdf919a427d228bfe6d548ef1c6a4c2236d3a27cbd8d6508026361c049e1e937",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "19.03.8",
+        "Author": "DataLad developers",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "22/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DEBIAN_FRONTEND=noninteractive"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "Image": "sha256:fdf919a427d228bfe6d548ef1c6a4c2236d3a27cbd8d6508026361c049e1e937",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 546025020,
+        "VirtualSize": 546025020,
+        "GraphDriver": {
+            "Data": {
+                "DeviceId": "142",
+                "DeviceName": "docker-9:0-6506658-445729d1a580946bd4aa2c2530f85f032233ea757b3021d15a7b69715b72d175",
+                "DeviceSize": "10737418240"
+            },
+            "Name": "devicemapper"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:f0e10b20de190c7cf4ea7ef410e7229d64facdc5d94514a13aa9b58d36fca647",
+                "sha256:ba7e234f99b9af1ad0153bdd644b612e958666e6b9c8ab3a074fc0dd6563882e",
+                "sha256:4506202e4db1bb49cbdfdec0936e72cb4d0f3dba64f40e4adcf256d640a6694d",
+                "sha256:6fdf28c7b9fae5a64276fce86a60c223ce28880ad8854cf4b11ba0b706603ea3",
+                "sha256:22f51f3504185b0f3e01eee452ab9c8e62cdd153a7fb97bc08dfa3015af45817",
+                "sha256:7ad3100e3f6b67dd6507f0a74649546501f6bda5b975b04dac7135859c6b7a40",
+                "sha256:9a0318a628820066092fba358e8fa1949cb2081cc784ce68058acd0b1862b51d",
+                "sha256:78e988e15b71567507d45432c756f36b20de611691e114abb28edaf73148f935"
+            ]
+        }
+    }
+]
