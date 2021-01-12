@@ -15,8 +15,8 @@ tests.
     container's .ssh/authorized_keys.
   --from=<image>
     Use <image> in the "FROM " line of the generated Dockerfile
-    instead of dataladtester/docker-ssh-target:latest.  When set to
-    '.', an image is built from the Dockerfile in the same directory
+    instead of an exported tarball of dataladtester/docker-ssh-target:latest.
+    When set to '.', an image is built from the Dockerfile in the same directory
     as this script.
   -2
     Start a second container.  This is needed for a few DataLad tests
@@ -41,7 +41,8 @@ EOF
 }
 
 key="$HOME/.ssh/id_rsa.pub"
-from=dataladtester/docker-ssh-target:latest
+from_tarball=http://datasets.datalad.org/datalad/docker-ssh-target/docker-ssh-target.tar.gz
+from=$from_tarball
 two=
 while test $# != 0
 do
@@ -94,6 +95,11 @@ then
     fi
     docker build -t datalad-tests-ssh-base .
     from="datalad-tests-ssh-base"
+elif test "$from" = "$from_tarball"
+then
+   curl -s "$from" | gunzip | docker load
+   # overload with hardcoded knowledge of the name of imported image
+   from=dataladtester/docker-ssh-target:latest
 fi
 
 # Note: Resolve the path for mounting.  None of DataLad's SSH tests
