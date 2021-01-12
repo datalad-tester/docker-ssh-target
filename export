@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Export latest image from docker hub.
+# We keep "docker hub" build as the ultimate source to ease access to the
+# image via regular docker pull  and ensure consistency.
+# docker inspect output is also saved to .json file to simplify access to
+# provenance/details of the saved tarball.
+
+set -eu
+
+name=docker-ssh-target
+from=dataladtester/$name:latest
+
+docker pull "$from"
+
+[ ! -e "$name.tar.gz" ] || rm "$name.tar.gz"
+docker save "dataladtester/$name" | gzip -9 > "$name.tar.gz"
+
+[ ! -e "$name.json" ] || rm "$name.json"
+docker inspect "dataladtester/$name" > "$name.json"
