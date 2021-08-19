@@ -1,0 +1,6 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[datalad "ora-remote"]
+	uuid = 8a7c035c-9122-4e5c-bb79-4b1f3adb9ee7
