@@ -97,7 +97,7 @@ then
     from="datalad-tests-ssh-base"
 elif test "$from" = "$from_tarball"
 then
-   curl -s "$from" | gunzip | docker load
+   curl -fSs "$from" | gunzip | docker load
    # overload with hardcoded knowledge of the name of imported image
    from=dataladtester/docker-ssh-target:latest
 fi
