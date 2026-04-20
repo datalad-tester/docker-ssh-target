@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -eu
+set -eux
 
 usage() {
     cat <<'EOF'
@@ -114,9 +114,9 @@ mkdir -p "$tmpdir"
 	RUN groupadd -og $(id -g) dl && \\
 	    useradd -ms /bin/bash -ou $(id -u) -g dl dl && \\
 	    mkdir -p /home/dl/.ssh && \\
-	    chown -R dl:dl /home/dl/ && \\
+	    chown -R dl:dl /home/dl/ /ds && \\
 	    echo 'dl:dl' | chpasswd
-	CMD ["/usr/sbin/sshd", "-D"]
+	CMD ["/usr/local/bin/server-start.sh"]
 	RUN mkdir -p "$tmpdir"
 	EOF
     docker build -t datalad-tests-ssh .
@@ -127,7 +127,7 @@ start() {
     port="$2"
     authkeys_file=/home/dl/.ssh/authorized_keys
     docker run --name "$name" -v "$tmpdir":"$tmpdir" -dit -p "$port":22 \
-           datalad-tests-ssh
+           -p 8080:80 -p 4430:443 datalad-tests-ssh
     docker exec -i "$name" \
            sh -c "cat >>$authkeys_file && chown dl:dl $authkeys_file" \
            <"$key"
